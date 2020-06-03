@@ -33,7 +33,7 @@ module.exports = {
             const { cdvend } = req.params;
             const { dsnome, idtipo, dslim } = req.body;
 
-            const vendedor = await Vendedor.findOne({ cdvend: cdvend });
+            const vendedor = await Vendedor.findOne({ where: {cdvend: cdvend }});
             
             if (!vendedor) {
                 return res.status(400).json({ error: 'Vendedor não cadastrado'});
@@ -71,9 +71,20 @@ module.exports = {
 
     async editarCliente(req, res) {
         try {
-            // TODO
+            const { cdcl } = req.params;
+            const { dsnome, idtipo, cdvend, dslim } = req.body;
+            
+            const cliente = await Cliente.update( { 
+                dsnome: dsnome, 
+                idtipo: idtipo, 
+                dslim: dslim,
+                cdvend: cdvend, 
+            }, { where: { cdcl: cdcl }});
+
+            return res.status(200).json(cliente);
+
         } catch (error) {
-            // TODO
+            return res.status(400).json("Não foi possível alterar vendedor ERRO: " + error);
         }
     }
 };
