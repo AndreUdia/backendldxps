@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize');
 const dbConfig = require('../config/database');
 
-const Vendedors = require('../models/Vendedor');
+const Vendedores = require('../models/Vendedor');
 const Cliente = require('../models/Cliente');
 
 const connection = new Sequelize(dbConfig);
 
-Vendedors.init(connection);
+Vendedores.init(connection);
 Cliente.init(connection);
 
 Cliente.associar(connection.models);

@@ -13,8 +13,18 @@ module.exports = {
     
     async editarVendedor(req, res) {
         try {
+            const { cdvend } = req.params;
+            const { dsnome, cdtab, dtnasc } = req.body;
             
-            // TODO
+            const vendedor = await Vendedor.update( { 
+                dsnome: dsnome, 
+                cdtab: cdtab, 
+                dtnasc: dtnasc 
+            }, { where: { cdvend: cdvend }});
+
+            console.log(vendedor);
+
+            return res.status(200).json(vendedor);
 
         } catch (error) {
             return res.status(400).json("Não foi possível alterar vendedor ERRO: " + error);
@@ -27,7 +37,7 @@ module.exports = {
 
             const cdvend = uuidv4();
     
-            const vendedor = await Vendedor.update( { cdvend, dsnome, cdtab, dtnasc });
+            const vendedor = await Vendedor.create( { cdvend, dsnome, cdtab, dtnasc });
     
             return res.status(201).json(vendedor);
 
