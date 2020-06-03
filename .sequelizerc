@@ -1,0 +1,6 @@
+const path = require('path'); // facilita caminhar pelas pastas - __dirname raiz e a cada vírgula uma pasta
+
+module.exports = {
+    config: path.resolve(__dirname, 'src', 'config', 'database.js'),
+    'migrations-path': path.resolve(__dirname, 'src', 'database', 'migrations'),
+};

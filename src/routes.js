@@ -1,9 +1,10 @@
 const express = require('express');
+const VendedorController = require('./controllers/VendedorController');
 
 const routes = express.Router();
 
-routes.get('/', (req, res) => {
-    return res.json({ hello: 'World'});
-});
+// crud vendedores
+routes.get('/vendedores/todos', VendedorController.retornaVendedores);
+routes.post('/vendedores', VendedorController.gravaVendedor);
 
 module.exports = routes;
