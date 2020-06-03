@@ -4,8 +4,8 @@ class Vendedor extends Model {
     static init(sequelize) {
         super.init({
             cdvend: DataTypes.UUID,
-            dsnome: DataTypes.STRING,
-            cdtab: DataTypes.STRING,
+            dsnome: DataTypes.STRING(50),
+            cdtab: DataTypes.INTEGER,
             dtnasc: DataTypes.DATEONLY,
         }, { sequelize })
     }
