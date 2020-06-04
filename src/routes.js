@@ -5,7 +5,7 @@ const ClienteController = require('./controllers/ClienteController');
 const routes = express.Router();
 
 // crud vendedores
-routes.get('/vendedores/todos', VendedorController.retornaVendedores);
+routes.get('/vendedores', VendedorController.retornaVendedores);
 routes.post('/vendedores', VendedorController.gravaVendedor);
 routes.put('/vendedores/:cdvend', VendedorController.editarVendedor);
 routes.delete('/vendedores/:cdvend', VendedorController.excluirVendedor);
@@ -13,7 +13,7 @@ routes.delete('/vendedores/:cdvend', VendedorController.excluirVendedor);
 // crud clientes
 routes.post('/vendedor/:cdvend/clientes', ClienteController.gravaCliente); // uuid do vendedor informado na rota
 routes.get('/vendedor/:cdvend/clientes', ClienteController.buscaClientesDoVendedor); // uuid do vendedor informado na rota
-routes.get('/clientes/todos', ClienteController.retornaClientes);
+routes.get('/clientes', ClienteController.retornaClientes);
 routes.delete('/clientes/:cdcl', ClienteController.excluirCliente);
 routes.put('/clientes/:cdcl', ClienteController.editarCliente);
 
