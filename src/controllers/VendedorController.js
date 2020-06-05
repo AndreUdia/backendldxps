@@ -10,6 +10,15 @@ module.exports = {
             return res.status(400).json("Não foi possível retornar lista de vendedores ERRO: " + error);
         }
     },
+
+    async retornarUmVendedor(req, res) {
+        try {
+            const vendedor = await Vendedor.findOne({ where: { cdvend: req.params }});
+            return res.status(200).json(vendedor);
+        } catch (error) {
+            return res.status(400).json("Não foi possível retornar lista de vendedores ERRO: " + error);
+        }
+    },
     
     async editarVendedor(req, res) {
         try {

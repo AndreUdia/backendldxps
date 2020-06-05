@@ -9,6 +9,7 @@ routes.get('/vendedores', VendedorController.retornaVendedores);
 routes.post('/vendedores', VendedorController.gravaVendedor);
 routes.put('/vendedores/:cdvend', VendedorController.editarVendedor);
 routes.delete('/vendedores/:cdvend', VendedorController.excluirVendedor);
+routes.get('/vendedores/:cdvend', VendedorController.retornarUmVendedor);
 
 // crud clientes
 routes.post('/vendedor/:cdvend/clientes', ClienteController.gravaCliente); // uuid do vendedor informado na rota
